@@ -1,4 +1,4 @@
-name: Build and deploy to gh-pages branch
+name: Build and deploy to master branch
 
 on:
   push:
