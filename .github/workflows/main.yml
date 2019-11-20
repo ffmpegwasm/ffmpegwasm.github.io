@@ -12,10 +12,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Build and Deploy
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: yarn install
+    - run: yarn lint
+    - run: yarn build
+
+    - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
         FOLDER: build
-        BUILD_SCRIPT: yarn install && yarn build
