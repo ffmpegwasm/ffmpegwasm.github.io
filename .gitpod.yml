@@ -1,7 +1,5 @@
 tasks:
-  - init: >
-    wget https://github.com/jeromewu/docker-workspace/raw/master/vim.zip -O /tmp/vim.zip &> /dev/null &&
-    unzip /tmp/vim.zip -d /home/gitpod &> /dev/null
+  - init: wget https://github.com/jeromewu/docker-workspace/raw/master/vim.zip -O /tmp/vim.zip &> /dev/null && unzip /tmp/vim.zip -d /home/gitpod &> /dev/null
   - init: yarn install
     command: yarn start
 
