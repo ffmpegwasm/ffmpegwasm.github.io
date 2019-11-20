@@ -18,4 +18,11 @@ jobs:
     - run: yarn install
     - run: yarn lint
     - run: yarn build
-    - run: yarn deploy
+
+    - name: Deploy	
+      uses: JamesIves/github-pages-deploy-action@releases/v3	
+      with:	
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}	
+        BASE_BRANCH	: develop	
+        BRANCH: master	
+        FOLDER: build
