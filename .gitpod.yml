@@ -1,0 +1,10 @@
+tasks:
+  - init: >
+    wget https://github.com/jeromewu/docker-workspace/raw/master/vim.zip -O /tmp/vim.zip &> /dev/null &&
+    unzip /tmp/vim.zip -d /home/gitpod &> /dev/null &&
+    npm install
+  command: npm start
+
+ports:
+  - port: 3000
+    onOpen: open-preview
