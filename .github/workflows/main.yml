@@ -18,4 +18,4 @@ jobs:
     - run: yarn install
     - run: yarn lint
     - run: yarn build
-    - run: yarn run deploy --repo https://${{ secrets.ACCESS_TOKEN }}@github.com/ffmpegjs/ffmpegjs.github.io.git
+    - run: yarn deploy --repo https://${{ secrets.ACCESS_TOKEN }}@github.com/ffmpegjs/ffmpegjs.github.io.git
