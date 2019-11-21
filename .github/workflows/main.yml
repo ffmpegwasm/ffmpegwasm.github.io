@@ -18,6 +18,6 @@ jobs:
     - run: yarn install
     - run: yarn lint
     - run: yarn build
-    - run: git config user.email "jeromewus@gmail.com
+    - run: git config user.email "jeromewus@gmail.com"
     - run: git config user.name "Jerome Wu"
     - run: yarn run deploy --repo https://${{ secrets.ACCESS_TOKEN }}@github.com/ffmpegjs/ffmpegjs.github.io.git
