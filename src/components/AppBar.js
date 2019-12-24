@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import MuiAppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import { DRAWER_WIDTH } from '../constants/config';
 
@@ -19,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
       width: `calc(100% - ${DRAWER_WIDTH}px)`,
       marginLeft: DRAWER_WIDTH,
     },
+  },
+  title: {
+    flexGrow: 1,
   },
 }));
 
@@ -37,6 +41,9 @@ export default function AppBar({ onMenuClick }) {
         >
           <MenuIcon />
         </IconButton>
+        <Typography variant="h6" className={classes.title}>
+          ffmpeg.js
+        </Typography>
       </Toolbar>
     </MuiAppBar>
   );
