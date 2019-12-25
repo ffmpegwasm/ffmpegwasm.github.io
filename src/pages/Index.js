@@ -30,7 +30,7 @@ export default () => {
       <img className={classes.logo} alt="logo" src={logo} />
       <Typography paragraph className={classes.desc}>
         ffmpeg.js is a pure Webassembly / Javascript port of FFmpeg.
-        It enables video & audio record, convert and stream right inside the browser.
+        It enables video & audio record, convert and stream right inside browsers.
       </Typography>
     </div>
   );
