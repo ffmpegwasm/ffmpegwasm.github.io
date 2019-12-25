@@ -3,11 +3,13 @@ import Divider from '@material-ui/core/Divider';
 import MuiDrawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
+import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ListItemLink from './ListItemLink';
 import { DRAWER_WIDTH } from '../constants/config';
 import { HomeContext } from '../context';
 import pkg from '../../package.json';
+import logo from '../assets/images/logo.png';
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
@@ -26,6 +28,11 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: DRAWER_WIDTH,
   },
+  logo: {
+    width: 32,
+    height: 32,
+    marginRight: 16,
+  },
 }));
 
 function Drawer() {
@@ -36,6 +43,9 @@ function Drawer() {
   const drawer = (
     <div>
       <div className={classes.toolbar}>
+        <Link to="/">
+          <img className={classes.logo} src={logo} alt="logo" />
+        </Link>
         <span>
           {pkg.dependencies['@ffmpeg/ffmpeg'].replace('^', 'v')}
         </span>

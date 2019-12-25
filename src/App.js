@@ -1,10 +1,9 @@
 import React from 'react';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import Typography from '@material-ui/core/Typography';
+import Index from './pages/Index';
 import AppBar from './components/AppBar';
 import Drawer from './components/Drawer';
-import logo from './assets/images/logo.png';
 import { DRAWER_WIDTH } from './constants/config';
 import { HomeProvider } from './context';
 
@@ -26,22 +25,6 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: DRAWER_WIDTH,
     },
   },
-  main: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    alignSelf: 'center',
-    margin: '64px 12px 64px 12px',
-    maxWidth: 684,
-  },
-  desc: {
-    fontSize: 24,
-  },
-  logo: {
-    width: 128,
-    height: 128,
-    margin: '0px 0px 32px 0px',
-  },
 }));
 
 export default function App() {
@@ -56,13 +39,7 @@ export default function App() {
           <div className={classes.root}>
             <Switch>
               <Route exact path="/">
-                <div className={classes.main}>
-                  <img className={classes.logo} alt="logo" src={logo} />
-                  <Typography paragraph className={classes.desc}>
-                    ffmpeg.js is a pure Webassembly / Javascript port of FFmpeg.
-                    It enables video & audio record, convert and stream right inside the browser.
-                  </Typography>
-                </div>
+                <Index />
               </Route>
               <Route path="/get-started">
                 <p>Get Started</p>
