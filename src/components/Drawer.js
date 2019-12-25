@@ -1,8 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Divider from '@material-ui/core/Divider';
 import MuiDrawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ListItemLink from './ListItemLink';
@@ -33,12 +38,19 @@ const useStyles = makeStyles((theme) => ({
     height: 32,
     marginRight: 16,
   },
+  nested: {
+    paddingLeft: theme.spacing(4),
+  },
 }));
 
 function Drawer() {
   const classes = useStyles();
   const theme = useTheme();
+  const [open, setOpen] = useState(false);
   const { state: { drawerOpen }, dispatch } = useContext(HomeContext);
+  const onExamplesToggle = () => {
+    setOpen(!open);
+  };
 
   const drawer = (
     <div>
@@ -53,7 +65,16 @@ function Drawer() {
       <Divider />
       <List>
         <ListItemLink to="/get-started" primary="Get Started" />
-        <ListItemLink to="/examples" primary="Examples" />
+        <ListItem button onClick={onExamplesToggle}>
+          <ListItemText primary="Examples" />
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </ListItem>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItemLink className={classes.nested} to="/examples/transcode" primary="Transcode" />
+            <ListItemLink className={classes.nested} to="/examples/trim" primary="Trim" />
+          </List>
+        </Collapse>
       </List>
     </div>
   );

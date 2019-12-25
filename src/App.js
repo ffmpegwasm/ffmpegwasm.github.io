@@ -44,8 +44,11 @@ export default function App() {
               <Route path="/get-started">
                 <p>Get Started</p>
               </Route>
-              <Route path="/examples">
-                <p>Examples</p>
+              <Route path="/examples/transcode">
+                <p>Transcode Example</p>
+              </Route>
+              <Route path="/examples/trim">
+                <p>Trim Example</p>
               </Route>
             </Switch>
           </div>
