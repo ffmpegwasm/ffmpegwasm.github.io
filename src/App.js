@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import AppBar from './components/AppBar';
 import Drawer from './components/Drawer';
 import logo from './assets/images/logo.png';
 import { DRAWER_WIDTH } from './constants/config';
+import { HomeProvider } from './context';
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -44,25 +45,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function App() {
   const classes = useStyles();
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const toggleDrawer = () => {
-    setDrawerOpen(!drawerOpen);
-  };
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar onMenuClick={toggleDrawer} />
-      <Drawer open={drawerOpen} onClose={toggleDrawer} />
-      <div className={classes.root}>
-        <div className={classes.main}>
-          <img className={classes.logo} alt="logo" src={logo} />
-          <Typography paragraph className={classes.desc}>
-            ffmpeg.js is a pure Webassembly / Javascript port of FFmpeg.
-            It enables video & audio record, convert and stream right inside the browser.
-          </Typography>
+      <HomeProvider>
+        <AppBar />
+        <Drawer />
+        <div className={classes.root}>
+          <div className={classes.main}>
+            <img className={classes.logo} alt="logo" src={logo} />
+            <Typography paragraph className={classes.desc}>
+              ffmpeg.js is a pure Webassembly / Javascript port of FFmpeg.
+              It enables video & audio record, convert and stream right inside the browser.
+            </Typography>
+          </div>
         </div>
-      </div>
+      </HomeProvider>
     </ThemeProvider>
   );
 }
