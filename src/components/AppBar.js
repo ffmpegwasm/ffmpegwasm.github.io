@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiAppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -27,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AppBar({ onMenuClick }) {
+export default function AppBar() {
   const classes = useStyles();
-  const { state: { drawerOpen } } = useContext(HomeContext);
+  const { dispatch } = useContext(HomeContext);
 
   return (
     <MuiAppBar color="inherit" position="static" className={classes.appBar}>
@@ -39,7 +38,7 @@ export default function AppBar({ onMenuClick }) {
           className={classes.menuButton}
           color="inherit"
           aria-label="menu"
-          onClick={onMenuClick}
+          onClick={() => dispatch({ type: 'TOGGLE_DRAWER' })}
         >
           <MenuIcon />
         </IconButton>
@@ -50,11 +49,3 @@ export default function AppBar({ onMenuClick }) {
     </MuiAppBar>
   );
 }
-
-AppBar.propTypes = {
-  onMenuClick: PropTypes.func,
-};
-
-AppBar.defaultProps = {
-  onMenuClick: () => {},
-};
