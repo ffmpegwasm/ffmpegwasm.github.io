@@ -5,7 +5,14 @@ const initialState = {
   drawerOpen: false,
 };
 
-const reducer = () => {};
+const reducer = (state, { type }) => {
+  switch (type) {
+    case 'TOGGLE_DRAWER':
+      return { ...state, drawerOpen: !state.drawerOpen };
+    default:
+      return state;
+  }
+};
 
 export const HomeContext = createContext(initialState);
 

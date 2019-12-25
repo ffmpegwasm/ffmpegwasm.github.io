@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import Divider from '@material-ui/core/Divider';
 import MuiDrawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
@@ -8,6 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { DRAWER_WIDTH } from '../constants/config';
+import { HomeContext } from '../context';
 import pkg from '../../package.json';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,9 +29,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Drawer({ open, onClose }) {
+function Drawer() {
   const classes = useStyles();
   const theme = useTheme();
+  const { state: { drawerOpen }, dispatch } = useContext(HomeContext);
 
   const drawer = (
     <div>
@@ -58,8 +59,8 @@ function Drawer({ open, onClose }) {
         <MuiDrawer
           variant="temporary"
           anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-          open={open}
-          onClose={onClose}
+          open={drawerOpen}
+          onClose={() => dispatch({ type: 'TOGGLE_DRAWER' })}
           classes={{
             paper: classes.drawerPaper,
           }}
@@ -84,15 +85,5 @@ function Drawer({ open, onClose }) {
     </nav>
   );
 }
-
-Drawer.propTypes = {
-  open: PropTypes.bool,
-  onClose: PropTypes.func,
-};
-
-Drawer.defaultProps = {
-  open: false,
-  onClose: () => {},
-};
 
 export default Drawer;
