@@ -1,5 +1,6 @@
 import React from 'react';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import AppBar from './components/AppBar';
 import Drawer from './components/Drawer';
@@ -49,17 +50,29 @@ export default function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <HomeProvider>
-        <AppBar />
-        <Drawer />
-        <div className={classes.root}>
-          <div className={classes.main}>
-            <img className={classes.logo} alt="logo" src={logo} />
-            <Typography paragraph className={classes.desc}>
-              ffmpeg.js is a pure Webassembly / Javascript port of FFmpeg.
-              It enables video & audio record, convert and stream right inside the browser.
-            </Typography>
+        <Router>
+          <AppBar />
+          <Drawer />
+          <div className={classes.root}>
+            <Switch>
+              <Route exact path="/">
+                <div className={classes.main}>
+                  <img className={classes.logo} alt="logo" src={logo} />
+                  <Typography paragraph className={classes.desc}>
+                    ffmpeg.js is a pure Webassembly / Javascript port of FFmpeg.
+                    It enables video & audio record, convert and stream right inside the browser.
+                  </Typography>
+                </div>
+              </Route>
+              <Route path="/get-started">
+                <p>Get Started</p>
+              </Route>
+              <Route path="/examples">
+                <p>Examples</p>
+              </Route>
+            </Switch>
           </div>
-        </div>
+        </Router>
       </HomeProvider>
     </ThemeProvider>
   );

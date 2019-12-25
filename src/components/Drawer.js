@@ -3,9 +3,8 @@ import Divider from '@material-ui/core/Divider';
 import MuiDrawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import ListItemLink from './ListItemLink';
 import { DRAWER_WIDTH } from '../constants/config';
 import { HomeContext } from '../context';
 import pkg from '../../package.json';
@@ -43,11 +42,8 @@ function Drawer() {
       </div>
       <Divider />
       <List>
-        {['Get Started', 'Examples'].map((text) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItemLink to="/get-started" primary="Get Started" />
+        <ListItemLink to="/examples" primary="Examples" />
       </List>
     </div>
   );
