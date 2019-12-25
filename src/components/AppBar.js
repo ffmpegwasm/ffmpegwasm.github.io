@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import MuiAppBar from '@material-ui/core/AppBar';
@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import { DRAWER_WIDTH } from '../constants/config';
+import { HomeContext } from '../context';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AppBar({ onMenuClick }) {
   const classes = useStyles();
+  const { state: { drawerOpen } } = useContext(HomeContext);
 
   return (
     <MuiAppBar color="inherit" position="static" className={classes.appBar}>
