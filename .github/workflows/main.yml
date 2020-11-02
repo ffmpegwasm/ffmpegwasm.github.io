@@ -1,4 +1,4 @@
-name: Build and deploy to master branch
+name: Build and deploy gh-pages
 
 on:
   push:
@@ -10,14 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@mv2
 
     - uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
-    - run: yarn install
-    - run: yarn lint
-    - run: yarn build
-    - run: git config user.email "jeromewus@gmail.com"
-    - run: git config user.name "Jerome Wu"
-    - run: yarn run deploy --repo https://${{ secrets.ACCESS_TOKEN }}@github.com/ffmpegjs/ffmpegjs.github.io.git
+        node-version: '12'
+    - name: Build
+      run: |
+      yarn install
+      yarn build
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
