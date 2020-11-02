@@ -1,13 +1,35 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
+import Divider from '@material-ui/core/Divider';
+import FadeIn from 'react-fade-in';
+import AppBar from './AppBar';
+import Banner from './Banner';
+import Installation from './Installation';
+import Demo from './Demo';
+import Libraries from './Libraries';
+import Templates from './Templates';
+import WriteUps from './WriteUps';
+import Footer from './Footer';
 
 function App() {
   return (
-    <Container maxWidth="sm">
-      <Box my={4}>
-        <div>FFMPEG.WASM</div>
-      </Box>
+    <Container maxWidth="md">
+      <FadeIn>
+        <AppBar />
+        <Banner />
+        <Libraries />
+        <Divider />
+        <div id="installation" />
+        <Installation />
+        <Divider />
+        <Demo />
+        <Divider />
+        <Templates />
+        <Divider />
+        <WriteUps />
+        <Divider />
+        <Footer />
+      </FadeIn>
     </Container>
   );
 }
