@@ -6,7 +6,7 @@ function App() {
   return (
     <Container maxWidth="sm">
       <Box my={4}>
-        <div>Hello World</div>
+        <div>FFMPEG.WASM</div>
       </Box>
     </Container>
   );
