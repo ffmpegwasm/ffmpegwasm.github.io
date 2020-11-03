@@ -4,14 +4,25 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import TemplateCard from './components/TemplateCard';
 import react from './assets/react.png';
+import js from './assets/js.png';
 
 const TEMPLATES = [
   {
     img: react,
     title: 'React',
     url: 'https://github.com/ffmpegwasm/react-app',
+  },
+  {
+    img: js,
+    title: 'JS (Browser)',
+    url: 'https://github.com/ffmpegwasm/ffmpeg.wasm/tree/master/examples/browser',
+  },
+  {
+    img: js,
+    title: 'JS (Node)',
+    url: 'https://github.com/ffmpegwasm/ffmpeg.wasm/tree/master/examples/node',
   }
-]
+];
 
 const useStyles = makeStyles({
   root: {
