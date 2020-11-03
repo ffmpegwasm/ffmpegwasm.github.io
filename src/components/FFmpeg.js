@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { createFFmpeg } from '@ffmpeg/ffmpeg';
+import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
+let ffmpeg = null;
 
 const useStyles = makeStyles({
   root: {
@@ -56,25 +57,37 @@ function FFmpeg({ args, inFilename, outFilename, mediaType }) {
   const [videoSrc, setVideoSrc] = useState('');
   const [progress, setProgress] = useState(0);
   const [message, setMessage] = useState('');
+  useEffect(() => {
+    if (ffmpeg === null) {
+      ffmpeg = createFFmpeg({ log: true });
+    }
+    ffmpeg.setLogger(({ type, message }) => {
+      if (type !== 'info') {
+        setMessage(message);
+      }
+    });
+    ffmpeg.setProgress(({ ratio }) => {
+      if (ratio >= 0 && ratio <= 1) {
+        setProgress(ratio * 100);
+      }
+      if (ratio === 1) {
+        setTimeout(() => { setProgress(0); }, 1000);
+      }
+    });
+  });
   const onFileUploaded = async ({ target: { files } }) => {
     const file = new Uint8Array(await readFromBlobOrFile(files[0]));
-    const ffmpeg = createFFmpeg({
-      log: true,
-      progress: ({ ratio }) => {
-        setProgress(ratio * 100);
-        if (ratio === 1) {
-          setInterval(() => { setProgress(0); }, 3000)
-        }
-      }
-    })
     setMessage('Loading FFmpeg.wasm');
-    await ffmpeg.load();
-    await ffmpeg.write(inFilename, file);
+    if (!ffmpeg.isLoaded()) {
+      setMessage('Loading ffmpeg.wasm-core, may take few minutes');
+      await ffmpeg.load();
+    }
+    ffmpeg.FS('writeFile', inFilename, await fetchFile(file));
     setMessage('Start to run command');
-    await ffmpeg.run(args.join(' '));
-    setMessage('Done!');
-    const data = ffmpeg.read(outFilename);
-    ffmpeg.remove(outFilename);
+    const start = Date.now();
+    await ffmpeg.run(...args);
+    setMessage(`Done in ${Date.now() - start} ms`);
+    const data = ffmpeg.FS('readFile', outFilename);
     setVideoSrc(URL.createObjectURL(new Blob([data.buffer], { type: mediaType })));
   };
   return (
@@ -97,7 +110,7 @@ function FFmpeg({ args, inFilename, outFilename, mediaType }) {
             component="label"
             color="secondary"
           >
-            Upload a Video File
+            Upload a Video/Audio File
             <input
               type="file"
               style={{ display: 'none' }}
@@ -108,7 +121,7 @@ function FFmpeg({ args, inFilename, outFilename, mediaType }) {
       </Grid>
       <Grid item>
         <Typography align="center">
-          {`ARGS=${args.join(' ')}`}
+          {`$ ffmpeg ${args.join(' ')}`}
         </Typography>
       </Grid>
       <Grid item>

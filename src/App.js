@@ -5,6 +5,7 @@ import FadeIn from 'react-fade-in';
 import AppBar from './AppBar';
 import Banner from './Banner';
 import Installation from './Installation';
+import Usage from './Usage';
 import Demo from './Demo';
 import Libraries from './Libraries';
 import Templates from './Templates';
@@ -22,6 +23,9 @@ function App() {
         <div id="installation" />
         <Installation />
         <Divider />
+        <Usage />
+        <Divider />
+        <div id="demo" />
         <Demo />
         <Divider />
         <Templates />
