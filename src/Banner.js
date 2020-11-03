@@ -7,6 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 // const ICON_WIDTH = 4;
 
+const DOC_URL = 'https://github.com/ffmpegwasm/ffmpeg.wasm/blob/master/docs/api.md';
+
 const useStyles = makeStyles({
   root: {
     height: 512,
@@ -45,7 +47,7 @@ function Banner() {
           </Grid>
           <Grid item>
             <Button variant="outlined" href="#installation">Get Started</Button>
-            <Button className={classes.docBtn} variant="outlined">Documentation</Button>
+            <Button className={classes.docBtn} variant="outlined" href={DOC_URL} target="_blank" rel="noopener">Documentation</Button>
           </Grid>
         </Grid>
       </Grid>
