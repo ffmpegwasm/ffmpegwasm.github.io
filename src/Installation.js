@@ -15,7 +15,7 @@ $ npm install @ffmpeg/core
 # Use yarn
 $ yarn add @ffmpeg/core`;
 
-const CDN_INSTALL_SCRIPTS=`<script src='https://unpkg.com/@ffmpeg/ffmpeg@0.9.2/dist/ffmpeg.min.js'></script>`;
+const CDN_INSTALL_SCRIPTS=`<script src='https://unpkg.com/@ffmpeg/ffmpeg@0.9.3/dist/ffmpeg.min.js'></script>`;
 
 const useStyles = makeStyles({
   root: {
