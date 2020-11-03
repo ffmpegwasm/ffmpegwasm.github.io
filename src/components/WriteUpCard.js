@@ -23,8 +23,8 @@ function WriteUpCard({ img, url, title, desc }) {
   const classes = useStyles();
   return (
     <Paper elevation={0}>
-      <Grid className={classes.root} container justify="space-between" wrap="nowrap" spacing={4}>
-        <Grid item>
+      <Grid className={classes.root} container justify="space-between" spacing={4}>
+        <Grid item xs={8}>
           <Typography variant="h6">
             <Link href={url} target="_blank" rel="noopener" color="inherit">{title}</Link>
           </Typography>
@@ -32,7 +32,7 @@ function WriteUpCard({ img, url, title, desc }) {
             {desc}
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid item xs={4}>
           <img className={classes.img} src={img} alt="card-img"/>
         </Grid>
       </Grid>
