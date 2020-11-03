@@ -10,9 +10,12 @@ $ npm install @ffmpeg/ffmpeg
 # Use yarn
 $ yarn add @ffmpeg/ffmpeg`;
 
-const CDN_INSTALL_SCRIPTS=`
-<script src='https://unpkg.com/@ffmpeg/ffmpeg@0.8.3/dist/ffmpeg.min.js'></script>
-`;
+const NPM_CORE_INSTALL_SCRIPTS=`# Use npm
+$ npm install @ffmpeg/core
+# Use yarn
+$ yarn add @ffmpeg/core`;
+
+const CDN_INSTALL_SCRIPTS=`<script src='https://unpkg.com/@ffmpeg/ffmpeg@0.9.2/dist/ffmpeg.min.js'></script>`;
 
 const useStyles = makeStyles({
   root: {
@@ -61,6 +64,13 @@ function Installation() {
       <ReadOnlyEditor
         language="html"
         code={CDN_INSTALL_SCRIPTS}
+      />
+      <Typography className={classes.para} variant="h6">
+        If you want to use it in node.js, you need to install @ffmpeg/core as well.
+      </Typography>
+      <ReadOnlyEditor
+        language="bash"
+        code={NPM_CORE_INSTALL_SCRIPTS}
       />
     </Grid>
   );
