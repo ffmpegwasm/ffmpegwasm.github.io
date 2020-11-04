@@ -42,7 +42,7 @@ function Banner() {
           </Grid>
           <Grid item>
             <Typography variant="h5">
-              ffmpeg.wasm is a pure WebAssembly / Javascript port of FFmpeg. It enables video & audio record, convert and stream right inside browsers.
+              ffmpeg.wasm is a pure WebAssembly / JavaScript port of FFmpeg. It enables video & audio record, convert and stream right inside browsers.
             </Typography>
           </Grid>
           <Grid item>
