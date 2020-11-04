@@ -4,8 +4,15 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import WriteUpCard from './components/WriteUpCard';
 import ffmpegWasmTuorialCover from './assets/ffmpeg-wasm-cover.png';
+import ffmpegWasmPostPreview from './assets/ffmpeg-wasm-post-preview.png';
 
 const WRITE_UPS = [
+  {
+    img: ffmpegWasmPostPreview,
+    url: 'https://jeromewu.github.io/ffmpeg-wasm-a-pure-webassembly-javascript-port-of-ffmpeg/',
+    title: 'FFmpeg.wasm, a pure WebAssembly / JavaScript port of FFmpeg',
+    desc: 'Introduction to ffmpeg.wasm and technical details behind',
+  },
   {
     img: ffmpegWasmTuorialCover,
     url: 'https://jeromewu.github.io/build-ffmpeg-webassembly-version-part-1-preparation/',
