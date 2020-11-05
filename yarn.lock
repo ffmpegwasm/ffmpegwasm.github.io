@@ -1047,15 +1047,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@ffmpeg/core@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@ffmpeg/core/-/core-0.8.0.tgz#2f0900b8454610558a5b67bafdfce7c91400a09f"
-  integrity sha512-I92MolCAAeqEQ4h6fLThj2V4KMGMtBOEy0Cua+xHhJKPnPympP+8w99f0sJLPmORPbD7V+mH1KvIcvejnV2j3A==
-
-"@ffmpeg/ffmpeg@^0.9.3":
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/@ffmpeg/ffmpeg/-/ffmpeg-0.9.3.tgz#90fd785dca31f39b6fb10269e936fc61828de7a0"
-  integrity sha512-xWRuxGTkngdRtbGzlpehNzkyANwCZDmmo9vWCD59Ai86PZuap/TgnxD1cOhpjaytXe/rrXnqaiNVMdMGvdh8cQ==
+"@ffmpeg/ffmpeg@^0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@ffmpeg/ffmpeg/-/ffmpeg-0.9.4.tgz#94908097dd3a899b78d2cabb711f32d8f3e187fc"
+  integrity sha512-OmJNdHqgUpKMJ19f45zTnGtfsLRKfCaE/blH88xzV1usut5CSvWrPyt1LVsZgDtrlaKaYyNHtap8Fbd7ln9qDQ==
   dependencies:
     is-url "^1.2.4"
     node-fetch "^2.6.1"

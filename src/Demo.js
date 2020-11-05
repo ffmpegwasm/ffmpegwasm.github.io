@@ -14,6 +14,8 @@ import {
 } from 'react-live';
 import vsDark from 'prism-react-renderer/themes/vsDark';
 import FFmpeg from './components/FFmpeg';
+import DemoLinkCard from './components/DemoLinkCard';
+import codepen from './assets/codepen.png';
 
 const TESTDATA_URL = 'https://github.com/ffmpegwasm/testdata';
 
@@ -40,6 +42,17 @@ const CONFIGS = {
   mediaType: 'audio/mp3',
 }`.trim('\n'),
 };
+
+const CODEPENS = [
+  {
+    title: 'WebCam',
+    url: 'https://codepen.io/jeromewu/details/qBBKzyW',
+  },
+  {
+    title: 'To x264 mp4',
+    url: 'https://codepen.io/jeromewu/pen/NWWaMeY',
+  },
+];
 
 const useStyles = makeStyles({
   root: {
@@ -107,6 +120,22 @@ function Demo() {
           </>
         )
       }
+      <Typography className={classes.para} align="center" variant="h6">
+        Live Demo on CodePen
+      </Typography>
+      <Grid container justify="center" spacing={2}>
+        {
+          CODEPENS.map(({ title, url }) => (
+            <Grid item key={url}>
+              <DemoLinkCard
+                img={codepen}
+                title={title}
+                url={url}
+              />
+            </Grid>
+          ))
+        }
+      </Grid>
     </Grid>
   );
 }

@@ -4,18 +4,29 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import vsDark from 'prism-react-renderer/themes/vsDark';
+import { dependencies } from '../package.json';
 
-const NPM_INSTALL_SCRIPTS=`# Use npm
+const NPM_INSTALL_SCRIPTS=`
+# Use npm
 $ npm install @ffmpeg/ffmpeg
 # Use yarn
-$ yarn add @ffmpeg/ffmpeg`;
+$ yarn add @ffmpeg/ffmpeg
+`.trim('\n');
 
-const NPM_CORE_INSTALL_SCRIPTS=`# Use npm
+const NPM_CORE_INSTALL_SCRIPTS=`
+# Use npm
 $ npm install @ffmpeg/core
 # Use yarn
-$ yarn add @ffmpeg/core`;
+$ yarn add @ffmpeg/core
+`.trim('\n');
 
-const CDN_INSTALL_SCRIPTS=`<script src='https://unpkg.com/@ffmpeg/ffmpeg@0.9.3/dist/ffmpeg.min.js'></script>`;
+const CDN_INSTALL_SCRIPTS=`
+<script src='https://unpkg.com/@ffmpeg/ffmpeg@${dependencies['@ffmpeg/ffmpeg'].slice(1)}/dist/ffmpeg.min.js'></script>
+<script>
+  const { createFFmpeg } = FFmpeg;
+  /* ... */
+</script>
+`.trim('\n');
 
 const useStyles = makeStyles({
   root: {
