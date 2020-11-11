@@ -59,7 +59,10 @@ function FFmpeg({ args, inFilename, outFilename, mediaType }) {
   const [message, setMessage] = useState('');
   useEffect(() => {
     if (ffmpeg === null) {
-      ffmpeg = createFFmpeg({ log: true });
+      ffmpeg = createFFmpeg({
+        log: true,
+        corePath: 'https://unpkg.com/@ffmpeg/core@0.8.3/dist/ffmpeg-core.js',
+      });
     }
     ffmpeg.setLogger(({ type, message }) => {
       if (type !== 'info') {
