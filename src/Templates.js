@@ -3,10 +3,16 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import TemplateCard from './components/TemplateCard';
+import vue from './assets/vue.png';
 import react from './assets/react.png';
 import js from './assets/js.png';
 
 const TEMPLATES = [
+  {
+    img: vue,
+    title: 'Vue',
+    url: 'https://github.com/ffmpegwasm/vue-app',
+  },
   {
     img: react,
     title: 'React',
