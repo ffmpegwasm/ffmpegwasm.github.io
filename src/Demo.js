@@ -18,6 +18,7 @@ import DemoLinkCard from './components/DemoLinkCard';
 import codepen from './assets/codepen.png';
 
 const TESTDATA_URL = 'https://github.com/ffmpegwasm/testdata';
+const GAE_URL = 'https://ffmpegwasm.et.r.appspot.com';
 
 const CONFIGS = {
   x264: `
@@ -80,9 +81,14 @@ function Demo() {
       </Typography>
       {
         !IS_COMPATIBLE ? (
-          <Typography align="center" variant="h6">
-            Your browser doesn't support SharedArrayBuffer, thus ffmpeg.wasm cannot execute. Please use latest version of Chromium or any other browser supports SharedArrayBuffer.
-          </Typography>
+          <>
+            <Typography align="center" variant="h6">
+              Your browser doesn't support SharedArrayBuffer, thus ffmpeg.wasm cannot execute. Please use latest version of Chromium or any other browser supports SharedArrayBuffer.
+            </Typography>
+            <Typography align="center">
+              (For Firefox 79+, proper headers in both client and server are required. Please visit <Link href={GAE_URL} target="_blank" rel="noopener" color="inherit">{GAE_URL}</Link> to try our demo.)
+            </Typography>
+          </>
         ) : (
           <>
             <LiveProvider
