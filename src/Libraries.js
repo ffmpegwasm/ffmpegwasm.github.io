@@ -12,6 +12,8 @@ import wavpack from './assets/wavpack.gif';
 import lame from './assets/lame.gif';
 import fdkaac from './assets/fdk-aac.svg';
 import vorbis from './assets/vorbis.png';
+import freetype from './assets/freetype.png';
+import opus from './assets/opus.png';
 
 const ISSUE_LINK = 'https://github.com/ffmpegwasm/ffmpeg.wasm/issues/61';
 
@@ -55,6 +57,16 @@ const EXTERNAL_LIBS = [
     img: vorbis,
     title: 'vorbis',
     desc: 'OGG codec',
+  },
+  {
+    img: opus,
+    title: 'opus',
+    desc: 'OPUS codec',
+  },
+  {
+    img: freetype,
+    title: 'freetype2',
+    desc: 'Font file renderer',
   },
 ];
 
