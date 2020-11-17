@@ -37,7 +37,7 @@ const CONFIGS = {
 }`.trim('\n'),
   lame: `
 {
-  args: ['-i', 'audio.wav', '-c:v', 'libmp3lame', 'audio.mp3'],
+  args: ['-i', 'audio.wav', '-c:a', 'libmp3lame', 'audio.mp3'],
   inFilename: 'audio.wav',
   outFilename: 'audio.mp3',
   mediaType: 'audio/mp3',

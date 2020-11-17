@@ -62,6 +62,7 @@ function FFmpeg({ args, inFilename, outFilename, mediaType }) {
       ffmpeg = createFFmpeg({
         log: true,
         corePath: '/static/js/ffmpeg-core.js',
+        // corePath: 'https://unpkg.com/@ffmpeg/core@0.8.3/dist/ffmpeg-core.js',
       });
     }
     ffmpeg.setLogger(({ type, message }) => {
