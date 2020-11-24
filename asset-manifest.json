@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/static/js/main.0a1bcc31.chunk.js",
-    "main.js.map": "/static/js/main.0a1bcc31.chunk.js.map",
+    "main.js": "/static/js/main.65854729.chunk.js",
+    "main.js.map": "/static/js/main.65854729.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d3bc20cd.js",
     "runtime-main.js.map": "/static/js/runtime-main.d3bc20cd.js.map",
-    "static/js/2.86275777.chunk.js": "/static/js/2.86275777.chunk.js",
-    "static/js/2.86275777.chunk.js.map": "/static/js/2.86275777.chunk.js.map",
+    "static/js/2.4e89bb00.chunk.js": "/static/js/2.4e89bb00.chunk.js",
+    "static/js/2.4e89bb00.chunk.js.map": "/static/js/2.4e89bb00.chunk.js.map",
     "static/js/3.fb80f234.chunk.js": "/static/js/3.fb80f234.chunk.js",
     "static/js/3.fb80f234.chunk.js.map": "/static/js/3.fb80f234.chunk.js.map",
     "index.html": "/index.html",
-    "static/js/2.86275777.chunk.js.LICENSE.txt": "/static/js/2.86275777.chunk.js.LICENSE.txt",
+    "static/js/2.4e89bb00.chunk.js.LICENSE.txt": "/static/js/2.4e89bb00.chunk.js.LICENSE.txt",
     "static/media/fdk-aac.54fed9a3.svg": "/static/media/fdk-aac.54fed9a3.svg",
     "static/media/ffmpeg-wasm-cover.2670fa11.png": "/static/media/ffmpeg-wasm-cover.2670fa11.png",
     "static/media/ffmpeg-wasm-post-preview.8659e505.png": "/static/media/ffmpeg-wasm-post-preview.8659e505.png",
@@ -20,7 +20,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.d3bc20cd.js",
-    "static/js/2.86275777.chunk.js",
-    "static/js/main.0a1bcc31.chunk.js"
+    "static/js/2.4e89bb00.chunk.js",
+    "static/js/main.65854729.chunk.js"
   ]
 }
