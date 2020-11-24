@@ -14,6 +14,7 @@ import fdkaac from './assets/fdk-aac.svg';
 import vorbis from './assets/vorbis.png';
 import freetype from './assets/freetype.png';
 import opus from './assets/opus.png';
+import webp from './assets/webp.png';
 
 const ISSUE_LINK = 'https://github.com/ffmpegwasm/ffmpeg.wasm/issues/61';
 
@@ -67,6 +68,11 @@ const EXTERNAL_LIBS = [
     img: freetype,
     title: 'freetype2',
     desc: 'Font file renderer',
+  },
+  {
+    img: webp,
+    title: 'libwebp',
+    desc: 'WEBP codec',
   },
 ];
 
