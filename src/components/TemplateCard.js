@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   root: {
     height: 160,
-    width: 160,
+    width: 200,
     padding: '16px 0px',
   },
   img: {
