@@ -6,6 +6,7 @@ import TemplateCard from './components/TemplateCard';
 import vue from './assets/vue.png';
 import react from './assets/react.png';
 import js from './assets/js.png';
+import chrome from './assets/chrome.png';
 
 const TEMPLATES = [
   {
@@ -17,6 +18,11 @@ const TEMPLATES = [
     img: react,
     title: 'React',
     url: 'https://github.com/ffmpegwasm/react-app',
+  },
+  {
+    img: chrome,
+    title: 'Chrome Extension',
+    url: 'https://github.com/ffmpegwasm/chrome-extension-app',
   },
   {
     img: js,
