@@ -70,6 +70,11 @@ const EXTERNAL_LIBS = [
     desc: 'Font file renderer',
   },
   {
+    img: freetype,
+    title: 'libass',
+    desc: 'subtitle renderer',
+  },
+  {
     img: webp,
     title: 'libwebp',
     desc: 'WEBP codec',
