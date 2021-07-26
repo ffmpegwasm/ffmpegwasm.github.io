@@ -14,8 +14,8 @@ import {
 } from 'react-live';
 import vsDark from 'prism-react-renderer/themes/vsDark';
 import FFmpeg from './components/FFmpeg';
-import DemoLinkCard from './components/DemoLinkCard';
-import codepen from './assets/codepen.png';
+// import DemoLinkCard from './components/DemoLinkCard';
+// import codepen from './assets/codepen.png';
 
 const TESTDATA_URL = 'https://github.com/ffmpegwasm/testdata';
 
@@ -122,6 +122,7 @@ function Demo() {
           </>
         )
       }
+      {/*
       <Typography className={classes.para} align="center" variant="h6">
         Live Demo on CodePen
       </Typography>
@@ -138,6 +139,7 @@ function Demo() {
           ))
         }
       </Grid>
+      */}
     </Grid>
   );
 }

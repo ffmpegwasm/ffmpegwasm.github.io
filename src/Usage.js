@@ -4,13 +4,12 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import vsDark from 'prism-react-renderer/themes/vsDark';
-import { dependencies } from '../package.json';
 
 const BROWSER_CODE=`
 <body>
   <video id="player" controls></video>
   <input type="file" id="uploader">
-  <script src="https://unpkg.com/@ffmpeg/ffmpeg@${dependencies['@ffmpeg/ffmpeg'].slice(1)}/dist/ffmpeg.min.js"></script>
+  <script src="ffmpeg.min.js"></script>
   <script>
     const { createFFmpeg, fetchFile } = FFmpeg;
     const ffmpeg = createFFmpeg({ log: true });
