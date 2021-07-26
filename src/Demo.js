@@ -18,7 +18,6 @@ import DemoLinkCard from './components/DemoLinkCard';
 import codepen from './assets/codepen.png';
 
 const TESTDATA_URL = 'https://github.com/ffmpegwasm/testdata';
-const GAE_URL = 'https://ffmpegwasm.et.r.appspot.com';
 
 const CONFIGS = {
   x264: `
