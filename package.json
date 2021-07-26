@@ -19,9 +19,9 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "BROWSER=none react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "BROWSER=none react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "lint": "eslint src",
     "eject": "react-scripts eject"
   },
@@ -43,5 +43,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "react-app-rewired": "^2.1.8"
+  }
 }

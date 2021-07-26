@@ -11,6 +11,8 @@ Official homepage for ffmpeg.wasm.
 
 ```
 $ yarn install
+# copy ffmpeg.wasm-core assets
+$ cp node_modules/@ffmpeg/core/dist/* public/static/js
 $ yarn build
 ```
 
