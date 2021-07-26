@@ -1,4 +1,4 @@
-name: Deploy to gh-pages
+name: Deploy to Github Pages
 
 on:
   push:
