@@ -12,12 +12,12 @@ $ npm install @ffmpeg/ffmpeg @ffmpeg/core
 $ yarn add @ffmpeg/ffmpeg @ffmpeg/core
 `.trim('\n');
 
-const NPM_CORE_INSTALL_SCRIPTS=`
-# Use npm
-$ npm install @ffmpeg/core
-# Use yarn
-$ yarn add @ffmpeg/core
-`.trim('\n');
+// const NPM_CORE_INSTALL_SCRIPTS=`
+// # Use npm
+// $ npm install @ffmpeg/core
+// # Use yarn
+// $ yarn add @ffmpeg/core
+// `.trim('\n');
 
 const useStyles = makeStyles({
   root: {
@@ -54,12 +54,13 @@ function Installation() {
         Installation
       </Typography>
       <Typography className={classes.para} variant="h6">
-        Install ffmpeg.wasm using npm:
+        Install ffmpeg.wasm:
       </Typography>
       <ReadOnlyEditor
         language="bash"
         code={NPM_INSTALL_SCRIPTS}
       />
+      {/*
       <Typography className={classes.para} variant="h6">
         If you want to use it in node.js, you need to install @ffmpeg/core as well.
       </Typography>
@@ -67,6 +68,7 @@ function Installation() {
         language="bash"
         code={NPM_CORE_INSTALL_SCRIPTS}
       />
+      */}
     </Grid>
   );
 }
