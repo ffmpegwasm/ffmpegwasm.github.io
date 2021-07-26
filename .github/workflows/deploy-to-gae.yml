@@ -1,0 +1,33 @@
+name: Deploy gh-pag
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node 12
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+    - name: Build
+      run: |
+        yarn install
+        yarn build
+    - name: Copy ffmpeg.wasm-core assets
+      run: |
+        cp node_modules/@ffmpeg/core/dist/* build/static/js
+    - name: Setup Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0.2.0
+      with:
+        project_id: ${{ env.PROJECT_ID }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+    - name: Deploy to GAE
+      run: |
+        cp -r build server
+        cd server && gcloud app deploy --quiet

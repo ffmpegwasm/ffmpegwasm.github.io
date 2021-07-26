@@ -85,9 +85,6 @@ function Demo() {
             <Typography align="center" variant="h6">
               Your browser doesn't support SharedArrayBuffer, thus ffmpeg.wasm cannot execute. Please use latest version of Chromium or any other browser supports SharedArrayBuffer.
             </Typography>
-            <Typography align="center">
-              (For Firefox 79+, proper headers in both client and server are required. Please visit <Link href={GAE_URL} target="_blank" rel="noopener" color="inherit">{GAE_URL}</Link> to try our demo.)
-            </Typography>
           </>
         ) : (
           <>

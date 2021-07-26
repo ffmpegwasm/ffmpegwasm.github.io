@@ -1,9 +1,9 @@
-name: Build and deploy gh-pages
+name: Deploy to gh-pages
 
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   build-and-deploy:
@@ -11,15 +11,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12'
-    - name: Build
-      run: |
-        yarn install
-        yarn build
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+        publish_dir: ./gh-pages

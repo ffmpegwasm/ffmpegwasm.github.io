@@ -1,0 +1,22 @@
+{
+  "name": "ffmpegwasm.appspot.com",
+  "version": "1.0.0",
+  "description": "ffmpeg.wasm offical websited hosted on GAE",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ffmpegwasm/ffmpegwasm.appspot.com.git"
+  },
+  "author": "Jerome Wu <jeromewus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ffmpegwasm/ffmpegwasm.appspot.com/issues"
+  },
+  "homepage": "https://github.com/ffmpegwasm/ffmpegwasm.appspot.com#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
