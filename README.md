@@ -1,7 +1,8 @@
 ffmpeg.wasm Homepage
 ==================
 
-![Build and deploy gh-pages](https://github.com/ffmpegwasm/ffmpegwasm.github.io/workflows/Build%20and%20deploy%20gh-pages/badge.svg)
+[![Deploy to GAE](https://github.com/ffmpegwasm/ffmpegwasm.github.io/actions/workflows/deploy-to-gae.yml/badge.svg)](https://github.com/ffmpegwasm/ffmpegwasm.github.io/actions/workflows/deploy-to-gae.yml)
+[![Deploy to gh-pages](https://github.com/ffmpegwasm/ffmpegwasm.github.io/actions/workflows/deploy-to-gh-pages.yml/badge.svg)](https://github.com/ffmpegwasm/ffmpegwasm.github.io/actions/workflows/deploy-to-gh-pages.yml)
 ![CodeQL](https://github.com/ffmpegwasm/ffmpegwasm.github.io/workflows/CodeQL/badge.svg)
 
 Official homepage for ffmpeg.wasm.
