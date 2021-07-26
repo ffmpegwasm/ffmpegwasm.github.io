@@ -43,16 +43,16 @@ const CONFIGS = {
 }`.trim('\n'),
 };
 
-const CODEPENS = [
-  {
-    title: 'WebCam',
-    url: 'https://codepen.io/jeromewu/details/qBBKzyW',
-  },
-  {
-    title: 'To x264 mp4',
-    url: 'https://codepen.io/jeromewu/pen/NWWaMeY',
-  },
-];
+// const CODEPENS = [
+//   {
+//     title: 'WebCam',
+//     url: 'https://codepen.io/jeromewu/details/qBBKzyW',
+//   },
+//   {
+//     title: 'To x264 mp4',
+//     url: 'https://codepen.io/jeromewu/pen/NWWaMeY',
+//   },
+// ];
 
 const useStyles = makeStyles({
   root: {
