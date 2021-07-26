@@ -1,4 +1,4 @@
-name: Deploy gh-pag
+name: Deploy to GAE
 
 on:
   push:
