@@ -1,5 +1,5 @@
 [build]
-  command = "yarn install && mv node_modules/@ffmpeg/core/dist/* public/static/js && yarn build"
+  command = "bash scripts/deploy.sh"
 
 [[headers]]
   for = "/*"
