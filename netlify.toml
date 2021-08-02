@@ -1,2 +1,5 @@
+[build]
+  command = "yarn build && cd server && npm install"
+
 [functions]
   directory = "server"
