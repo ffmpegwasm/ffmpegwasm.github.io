@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ffmpegwasm/ffmpegwasm.appspot.com#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0"
   }
 }
