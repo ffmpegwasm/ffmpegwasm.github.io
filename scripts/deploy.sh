@@ -1,5 +1,6 @@
 #!/bin/bash
 
-pwd && yarn install
-pwd && cp ./node_modules/@ffmpeg/core/dist/* ./public/static/js
+wget https://github.com/ffmpegwasm/ffmpeg.wasm-core/releases/download/v0.10.0/ffmpeg-core.zip
+unzip ffmpeg-core.zip -d public/static/js
+yarn install
 yarn build
