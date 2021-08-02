@@ -3,3 +3,8 @@
 
 [functions]
   directory = "server"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server/*"
+  force = true
