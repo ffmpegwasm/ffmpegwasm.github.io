@@ -1,10 +1,8 @@
 [build]
-  command = "yarn build && cd server && npm install"
+  command = "yarn install && mv node_modules/@ffmpeg/core/dist/* public/static/js && yarn build"
 
-[functions]
-  directory = "server"
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/server/*"
-  force = true
+[[headers]]
+  for = "/*"
+  [headers.values]
+  Cross-Origin-Opener-Policy = "same-origin"
+  Cross-Origin-Embedder-Policy = "require-corp"
