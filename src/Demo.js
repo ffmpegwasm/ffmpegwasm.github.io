@@ -69,7 +69,12 @@ function Demo() {
   const onConfigChanged = (evt) => {
     setConfig(evt.target.value);
   };
-  const IS_COMPATIBLE = typeof SharedArrayBuffer === 'function';
+	const IS_COMPATIBLE = typeof SharedArrayBuffer === 'function';
+	// const IS_COMPATIBLE = false;
+  const mainName = IS_COMPATIBLE ? 'proxy_main' : 'main';
+  const corePath = IS_COMPATIBLE ?
+    'https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js'
+    : 'https://unpkg.com/@ffmpeg/core-st@0.11.1/dist/ffmpeg-core.js';
   return (
     <Grid className={classes.root} container direction="column" >
       <Typography align="center" variant="h4">
@@ -78,50 +83,43 @@ function Demo() {
       <Typography className={classes.para} align="center" variant="h6">
         Try ffmpeg.wasm now!
       </Typography>
-      {
-        !IS_COMPATIBLE ? (
-          <>
-            <Typography align="center" variant="h6">
-              Your browser doesn't support SharedArrayBuffer, thus ffmpeg.wasm cannot execute. Please use latest version of Chromium or any other browser supports SharedArrayBuffer.
-            </Typography>
-          </>
-        ) : (
-          <>
-            <LiveProvider
-              theme={vsDark}
-              code={CONFIGS[config]}
-              scope={{ FFmpeg }}
-              transformCode={(code) => (
-                `() => { const props=${code}; return <FFmpeg {...props} />;}`
-              )}
-            >
-              <LivePreview />
-              <Grid container justify="space-between" alignItems="flex-end">
-                <Grid item>
-                  <Typography>
-                    Edit the code block below to test your scenario (<Link href={TESTDATA_URL} target="_blank" rel="noopener" color="secondary">Download Sample Video/Audio</Link>):
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <InputLabel id="config-select-label">Choose a sample config</InputLabel>
-                  <Select
-                    labelId="config-select-label"
-                    id="config-select"
-                    value={config}
-                    onChange={onConfigChanged}
-                  >
-                    <MenuItem value="x264">x264 (mp4)</MenuItem>
-                    <MenuItem value="libvpx">libvpx (webm)</MenuItem>
-                    <MenuItem value="lame">lame (mp3)</MenuItem>
-                  </Select>
-                </Grid>
-              </Grid>
-              <LiveEditor style={{ fontSize: 18, marginTop: 8 }}/>
-              <LiveError />
-            </LiveProvider>
-          </>
-        )
-      }
+			{!IS_COMPATIBLE ? (
+				<Typography align="center" variant="h6">
+					Your browser doesn't support SharedArrayBuffer, thus ffmpeg.wasm single thread version is used. (which is SLOW) Please use latest version of Chromium or any other browser supports SharedArrayBuffer.
+				</Typography>
+			): null}
+			<LiveProvider
+				theme={vsDark}
+				code={CONFIGS[config]}
+				scope={{ FFmpeg }}
+				transformCode={(c) => (
+					`() => { const props=${c}; return <FFmpeg mainName="${mainName}" corePath="${corePath}" {...props} />;}`
+				)}
+			>
+				<LivePreview />
+				<Grid container justify="space-between" alignItems="flex-end">
+					<Grid item>
+						<Typography>
+							Edit the code block below to test your scenario (<Link href={TESTDATA_URL} target="_blank" rel="noopener" color="secondary">Download Sample Video/Audio</Link>):
+						</Typography>
+					</Grid>
+					<Grid item>
+						<InputLabel id="config-select-label">Choose a sample config</InputLabel>
+						<Select
+							labelId="config-select-label"
+							id="config-select"
+							value={config}
+							onChange={onConfigChanged}
+						>
+							<MenuItem value="x264">x264 (mp4)</MenuItem>
+							<MenuItem value="libvpx">libvpx (webm)</MenuItem>
+							<MenuItem value="lame">lame (mp3)</MenuItem>
+						</Select>
+					</Grid>
+				</Grid>
+				<LiveEditor style={{ fontSize: 18, marginTop: 8 }}/>
+				<LiveError />
+			</LiveProvider>
       {/*
       <Typography className={classes.para} align="center" variant="h6">
         Live Demo on CodePen

@@ -52,7 +52,7 @@ function CircularProgressWithLabel(props) {
   );
 }
 
-function FFmpeg({ args, inFilename, outFilename, mediaType }) {
+function FFmpeg({ args, inFilename, outFilename, mediaType, mainName, corePath }) {
   const classes = useStyles();
   const [videoSrc, setVideoSrc] = useState('');
   const [progress, setProgress] = useState(0);
@@ -61,8 +61,8 @@ function FFmpeg({ args, inFilename, outFilename, mediaType }) {
     if (ffmpeg === null) {
       ffmpeg = createFFmpeg({
         log: true,
-        corePath: './static/js/ffmpeg-core.js',
-        // corePath: 'https://unpkg.com/@ffmpeg/core@0.8.3/dist/ffmpeg-core.js',
+				mainName,
+				corePath,
       });
     }
     ffmpeg.setLogger(({ type, message }) => {
@@ -83,7 +83,7 @@ function FFmpeg({ args, inFilename, outFilename, mediaType }) {
     const file = new Uint8Array(await readFromBlobOrFile(files[0]));
     setMessage('Loading FFmpeg.wasm');
     if (!ffmpeg.isLoaded()) {
-      setMessage('Loading ffmpeg.wasm-core, may take few minutes');
+			setMessage('Loading ffmpeg.wasm-core, may take a few minutes (check Developer tools -> Console for more details)');
       await ffmpeg.load();
     }
     ffmpeg.FS('writeFile', inFilename, await fetchFile(file));
