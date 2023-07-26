@@ -1,6 +1,8 @@
 ffmpeg.wasm Homepage
 ==================
 
+## Deprecated, merge to https://github.com/ffmpegwasm/ffmpeg.wasm as part of the monorepo.
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b0e1bd73-a15c-4706-b5b1-993035c5bf2f/deploy-status)](https://app.netlify.com/sites/ffmpegwasm/deploys)
 [![Deploy to Github Pages](https://github.com/ffmpegwasm/ffmpegwasm.github.io/actions/workflows/deploy-to-gh-pages.yml/badge.svg)](https://github.com/ffmpegwasm/ffmpegwasm.github.io/actions/workflows/deploy-to-gh-pages.yml)
 ![CodeQL](https://github.com/ffmpegwasm/ffmpegwasm.github.io/workflows/CodeQL/badge.svg)
